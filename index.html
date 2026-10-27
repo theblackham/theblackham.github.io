@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aiham – Portfolio</title>
+<meta name="description" content="Portfolio of Aiham, a Python developer specialising in front end, based in Wales.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#e9edf8; --ink:#16213e; --muted:#53608a; --line:#16213e; --mark:#ffd23f; --panel:#f6f8fd;
+  --display:"Bricolage Grotesque",system-ui,sans-serif; --body:"Instrument Sans",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#10162b;--ink:#e8ecfa;--muted:#9aa6cf;--line:#e8ecfa;--panel:#18203b}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.6}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--mark);outline-offset:3px}
+.wrap{max-width:62rem;margin:0 auto;padding:0 1.5rem}
+
+/* top bar */
+header{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 0;font-weight:500}
+nav{display:flex;gap:1.5rem}
+nav a{text-decoration:none}
+nav a:hover{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
+
+/* hero */
+.hero{padding:5rem 0 4rem}
+.hero h1{font-family:var(--display);font-weight:800;font-size:clamp(3.25rem,13vw,9.5rem);line-height:.9;letter-spacing:-.04em;margin:0 0 2rem}
+.hero h1 span{display:block}
+.hero p{max-width:34rem;font-size:1.25rem;margin:0 0 1.5rem}
+mark{background:linear-gradient(transparent 55%,var(--mark) 55%);color:inherit;padding:0 .1em}
+.status{display:inline-flex;align-items:center;gap:.6rem;border:2px solid var(--line);border-radius:999px;padding:.35rem 1rem;font-weight:500;font-size:.95rem}
+.dot{width:.65rem;height:.65rem;border-radius:50%;background:#2fbf71;animation:pulse 2.4s ease-out 3}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(47,191,113,.7)}100%{box-shadow:0 0 0 .8rem rgba(47,191,113,0)}}
+
+/* sections */
+section{padding:3.5rem 0;border-top:2px solid var(--line)}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(1.75rem,4vw,2.5rem);letter-spacing:-.02em;margin:0 0 1.5rem}
+
+/* projects: expanding rows */
+.projects details{border-bottom:1px solid var(--muted)}
+.projects summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:1.1rem 0}
+.projects summary::-webkit-details-marker{display:none}
+.projects .title{font-family:var(--display);font-weight:700;font-size:clamp(1.5rem,4.5vw,2.75rem);letter-spacing:-.025em;line-height:1.1;transition:transform .2s}
+.projects summary:hover .title{transform:translateX(.5rem)}
+.projects .tags{color:var(--muted);font-size:.95rem;text-align:right;flex-shrink:0}
+.projects details[open] .title{background:linear-gradient(transparent 60%,var(--mark) 60%)}
+.detail{padding:0 0 1.75rem;display:grid;gap:1rem;max-width:40rem}
+.detail p{margin:0}
+.links{display:flex;gap:1.25rem;font-weight:600}
+.links a{text-underline-offset:4px;text-decoration-thickness:2px}
+
+/* about */
+.about{display:grid;gap:2rem;grid-template-columns:1fr}
+@media(min-width:48rem){.about{grid-template-columns:2fr 1fr}}
+.about p{margin:0 0 1rem;max-width:38rem}
+.skills{background:var(--panel);border:2px solid var(--line);border-radius:.75rem;padding:1.25rem 1.5rem;align-self:start}
+.skills h3{margin:0 0 .5rem;font-family:var(--display);font-size:1.15rem}
+.skills ul{margin:0;padding-left:1.1rem;color:var(--muted)}
+
+/* contact */
+.contact a.big{font-family:var(--display);font-weight:800;font-size:clamp(1.6rem,6vw,3.5rem);letter-spacing:-.03em;text-decoration-thickness:4px;text-underline-offset:8px;word-break:break-word}
+.contact a.big:hover{background:var(--mark);color:#16213e}
+.social{display:flex;gap:1.5rem;margin-top:1.5rem;font-weight:600}
+footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem}
+
+@media(max-width:36rem){.projects summary{flex-direction:column;gap:.25rem}.projects .tags{text-align:left}nav{gap:1rem}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a href="#top" aria-label="Home">Aiham</a>
+    <nav aria-label="Main">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- HERO: replace the name, the one-liner, and the status -->
+    <div class="hero">
+      <h1><span>Aiham.</span></h1>
+      <p>I’m a <mark>Python developer</mark> specialising in front end, with 1.5 years of experience. Based in Wales.</p>
+      <span class="status"><span class="dot" aria-hidden="true"></span>Currently learning full stack development</span>
+    </div>
+
+    <!-- WORK: copy a <details> block per project. First one is open by default. -->
+    <section id="work" class="projects">
+      <h2>Selected work</h2>
+
+      <details open>
+        <summary><span class="title">RLNameSpoofer</span><span class="tags">Python, mitmproxy</span></summary>
+        <div class="detail">
+          <p>A Rocket League name spoofer built entirely in Python. It uses mitmproxy to sit in the middle of the game’s network traffic and change what gets sent. About 1,600 lines of code.</p>
+          <div class="links"><a href="https://github.com/vinous14/RLNameSpoofer">Code on GitHub</a></div>
+        </div>
+      </details>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <h2>About</h2>
+      <div class="about">
+        <div>
+          <p>I live in Wales and have loved computers since I was nine. That turned into Python, and then into a year and a half of building things with a focus on front end.</p>
+          <p>Right now I’m learning full stack development and studying Computer Science at A level.</p>
+        </div>
+        <aside class="skills">
+          <h3>Toolbox</h3>
+          <ul>
+            <li>Python</li>
+            <li>mitmproxy</li>
+            <li>Front end development</li>
+            <li>Learning: full stack</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
+      <h2>Say hello</h2>
+      <a class="big" href="mailto:obidaali420@gmail.com">obidaali420@gmail.com</a>
+      <div class="social">
+        <a href="https://github.com/theblackham">GitHub</a>
+        <span>Discord: theblackham</span>
+      </div>
+    </section>
+  </main>
+
+  <footer>© 2026 Aiham. Built by hand and hosted on GitHub Pages.</footer>
+</div>
+</body>
+</html>
